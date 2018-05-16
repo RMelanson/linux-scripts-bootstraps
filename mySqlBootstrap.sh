@@ -4,4 +4,4 @@ mySqlDir=/tmp/scripts/apps/db/MYSQL
 git clone https://github.com/RMelanson/linux-scripts-apps-db-mysql.git $mySqlDir
 cd $mySqlDir
 . ./setup.sh
-cd $mySqlCurrDir:
+cd $mySqlCurrDir
