@@ -1,5 +1,5 @@
 #!/bin/bash
-currDir=$(PWD)
+masterCurrDir=$(PWD)
 
 #------------------- INITIAL BASIC TOOLS INSTALL --------------------
 yum update -y
@@ -12,7 +12,6 @@ bootStrapsDir=/var/scripts/bootstraps
 git clone https://github.com/RMelanson/linux-scripts-bootstraps.git $bootStrapsDir
 echo bootstraps installed in directory $bootStrapDir
 cd $bootStrapsDir
+. ./setup.sh
 
-#------------------- INSTALL DEV TOOLS --------------------
-./devToolsBootstrap.sh
-cd $currDir
+cd $masterCurrDir
