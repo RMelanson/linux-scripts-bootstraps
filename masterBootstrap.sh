@@ -9,7 +9,7 @@ yum install git -y
 
 #------------------- INSTALL MASTER BOOTSTRAP APPLICATIONS --------------------
 bootStrapsDir=/var/scripts/bootstraps
-git clone https://github.com/RMelanson/linux-scripts-bootstraps.git $bootStrapsDir
+git clone git@github.com:RMelanson/linux-scripts-bootstraps.git $bootStrapsDir
 echo bootstraps installed in directory $bootStrapDir
 cd $bootStrapsDir
 . ./setup.sh
