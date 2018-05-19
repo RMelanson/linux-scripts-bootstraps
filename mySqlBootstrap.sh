@@ -4,7 +4,7 @@ mySqlCurrDir=$PWD
 #Set Cloning Properties
 pkg=mysql
 gitRepo="linux-scripts-apps-db-mysql.git"
-installDir="/tmp/scripts/apps/db/MYSQL"
+installDir="/tmp/scripts/db/MYSQL"
 if [ "$1" = "ssh" ]; then
    clone="git clone git@github.com:RMelanson/"
 else
