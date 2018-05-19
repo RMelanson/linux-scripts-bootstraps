@@ -1,8 +1,24 @@
 #!/bin/bash
 swCurrDir=$PWD
-swDir=/tmp/scripts/api/SW/REST
-alias cdsw='cd $swDir'
-git clone git@github.com:RMelanson/linux-scripts-api-rest-stockWidgets.git $swDir
-cd $swDir
+
+#Set Cloning Properties
+pkg=stockWidgets
+gitRepo="linux-scripts-api-rest-stockWidgets.git"
+installDir="/tmp/scripts/api/SW/REST"
+if [ "$1" = "ssh" ]; then
+   clone="git clone git@github.com:RMelanson/"
+else
+   clone="git clone https://github.com/RMelanson/"
+fi
+
+# Clone $pkg
+echo Executing $clone$gitRepo $installDir
+$clone$gitRepo $installDir
+
+exit 1
+
+# Setup $pkg
+cd $installDir
 . ./setup.sh
+
 cd $swCurrDir

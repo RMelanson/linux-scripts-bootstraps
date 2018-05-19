@@ -1,4 +1,5 @@
 #!/bin/bash
+bsCurrDir=$PWD
 
 #INITIAL BASIC TOOLS INSTALL
 yum update -y
@@ -7,10 +8,9 @@ yum update -y
 yum install git -y
 
 #Set Cloning Properties
-pkg=Bootstraps
-bsCurrDir=$PWD
+pkg=bootstraps
 gitRepo="linux-scripts-bootstraps.git"
-installDir="/var/scripts/bootstraps/test"
+installDir="/var/scripts/bootstraps"
 if [ "$1" = "ssh" ]; then
    clone="git clone git@github.com:RMelanson/"
 else
@@ -20,8 +20,6 @@ fi
 # Clone $pkg
 echo Executing $clone$gitRepo $installDir
 $clone$gitRepo $installDir
-
-exit 1
 
 # Setup $pkg
 cd $installDir
