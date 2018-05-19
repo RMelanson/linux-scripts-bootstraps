@@ -1,5 +1,5 @@
 #!/bin/bash
-swApiRestDir=$PWD
+swRestDir=$PWD
 
 #Set Cloning Properties
 pkg=Web
@@ -19,4 +19,4 @@ $clone$gitRepo $installDir
 cd $installDir
 . ./setup.sh
 
-cd $swApiRestDir
+cd $swRestDir
