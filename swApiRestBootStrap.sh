@@ -3,8 +3,8 @@ swApiRestDir=$PWD
 
 #Set Cloning Properties
 pkg=Web
-gitRepo="linux-scripts-apps-web.git"
-installDir="/tmp/scripts/apps/WEB"
+gitRepo="linux-scripts-apps-sw-api-rest"
+installDir="/tmp/scripts/apps/SW/API/REST"
 if [ "$1" = "ssh" ]; then
    clone="git clone git@github.com:RMelanson/"
 else
