@@ -5,7 +5,7 @@ swTestDataCurrDir=$PWD
 pkg=swTestData
 gitRepo="linux-scripts-apps-sw-test-data.git"
 installDir="/tmp/scripts/apps/SW/test/data"
-if [ -f "~/.ssh/gitHub.key" ]; then
+if [ -f ~/.ssh/gitHub.key ]; then
    clone="git clone git@github.com:RMelanson/"
 else
    clone="git clone https://github.com/RMelanson/"

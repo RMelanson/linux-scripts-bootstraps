@@ -5,7 +5,7 @@ mySqlCurrDir=$PWD
 pkg=mysql
 gitRepo="linux-scripts-apps-db-mysql.git"
 installDir="/tmp/scripts/db/MYSQL"
-if [ -f "~/.ssh/gitHub.key" ]; then
+if [ -f ~/.ssh/gitHub.key ]; then
    clone="git clone git@github.com:RMelanson/"
 else
    clone="git clone https://github.com/RMelanson/"
