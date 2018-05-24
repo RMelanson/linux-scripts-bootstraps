@@ -1,5 +1,11 @@
 #!/bin/bash
+# Ensure script is running under root
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root or under sudo"
+  exit -1
+fi
 
+$s3fsCurrDir=$PWD
 #Set Cloning Properties
 pkg=s3fs
 gitRepo="linux-aws-scripts-utils-s3fs.git"
