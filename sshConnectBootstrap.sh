@@ -5,7 +5,7 @@ sshConnectDir=$PWD
 pkg=Web
 gitRepo="linux-scripts-utils-gitHub-sshConnect"
 installDir="/tmp/scripts/utils/sshConnect"
-if [ "$1" = "ssh" ]; then
+if [ -f "~/.ssh/gitHub.key" ]; then
    clone="git clone git@github.com:RMelanson/"
 else
    clone="git clone https://github.com/RMelanson/"

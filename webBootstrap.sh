@@ -5,7 +5,7 @@ webCurrDir=$PWD
 pkg=Web
 gitRepo="linux-scripts-apps-web.git"
 installDir="/tmp/scripts/apps/WEB"
-if [ "$1" = "ssh" ]; then
+if [ -f "~/.ssh/gitHub.key" ]; then
    clone="git clone git@github.com:RMelanson/"
 else
    clone="git clone https://github.com/RMelanson/"
