@@ -6,4 +6,4 @@ if [ "$EUID" -ne 0 ]
 fi
 
 # Setup the required environment
-. ./env/setEnv.sh#
+. ./env/setEnv.sh
