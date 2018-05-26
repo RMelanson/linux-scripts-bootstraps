@@ -1,4 +1,6 @@
 #!/bin/bash
+swTestDataCurrDir=$PWD
+
 # Ensure script is running under root
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root or under sudo"
@@ -11,16 +13,14 @@ else
    branch=$1
 fi
 
-swTestDataCurrDir=$PWD
-
 #Set Cloning Properties
 pkg=swTestData
 gitRepo="linux-scripts-apps-sw-test-data.git"
 installDir="/tmp/scripts/apps/SW/test/data"
 if [ -f ~/.ssh/gitHub.key ]; then
-   clone="git clone git@github.com:RMelanson/"
+   clone="git clone -b $branch git@github.com:RMelanson/"
 else
-   clone="git clone https://github.com/RMelanson/"
+   clone="git clone -b $branch https://github.com/RMelanson/"
 fi
 
 # Clone $pkg
