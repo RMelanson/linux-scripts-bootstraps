@@ -11,6 +11,12 @@ else
    branch=$1
 fi
 
+if [ -z "$1" ]; then
+   branch=master
+else
+   branch=$1
+fi
+
 sshConnectDir=$PWD
 
 #Set Cloning Properties
