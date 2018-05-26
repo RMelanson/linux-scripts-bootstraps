@@ -1,11 +1,17 @@
 #!/bin/bash
+webCurrDir=$PWD
+
 # Ensure script is running under root
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root or under sudo"
   exit -1
 fi
 
-webCurrDir=$PWD
+if [ -z "$1" ]; then
+   branch=master
+else
+   branch=$1
+fi
 
 #Set Cloning Properties
 pkg=Web
