@@ -1,9 +1,17 @@
 #!/bin/bash
+
 # Ensure script is running under root
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root or under sudo"
   exit -1
 fi
+
+s3fsCurrDir=$PWD
+baseDir=/tmp/scripts
+subDir=utils
+pkg=S3FS
+installDir="$baseDir/$subDir/$pkg"
+gitRepo="linux-aws-scripts-utils-s3fs.git"
 
 if [ -z "$1" ]; then
    branch=master
@@ -11,16 +19,11 @@ else
    branch=$1
 fi
 
-s3BackupCurrDir=$PWD
-
 #Set Cloning Properties
-pkg=devTools
-gitRepo="linux-scripts-bootstraps.git"
-installDir="/tmp/scripts/utils/s3Backups"
 if [ -f ~/.ssh/gitHub.key ]; then
-   clone="git clone git@github.com:RMelanson/"
+   clone="git clone -b $branch git@github.com:RMelanson/"
 else
-   clone="git clone https://github.com/RMelanson/"
+   clone="git clone -b $branch https://github.com/RMelanson/"
 fi
 
 # Clone $pkg
@@ -31,4 +34,4 @@ $clone$gitRepo $installDir
 cd $installDir
 . ./setup.sh
 
-cd $s3BackupCurrDir
+cd $s3fsCurrDir

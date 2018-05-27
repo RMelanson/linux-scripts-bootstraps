@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Ensure script is running under root
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root or under sudo"
@@ -11,11 +12,15 @@ else
    branch=$1
 fi
 
-$s3fsCurrDir=$PWD
+swTestDataCurrDir=$PWD
+baseDir=/tmp/scripts
+subDir=apps
+pkg=SW_TEST_DATA
+installDir="$baseDir/$subDir/$pkg"
+gitRepo="linux-scripts-apps-sw-test-data.git"
+
 #Set Cloning Properties
-pkg=s3fs
-gitRepo="linux-aws-scripts-utils-s3fs.git"
-installDir="/tmp/scripts/apps/S3FS"
+installDir="/tmp/scripts/apps/SW/test/data"
 if [ -f ~/.ssh/gitHub.key ]; then
    clone="git clone -b $branch git@github.com:RMelanson/"
 else
@@ -30,4 +35,4 @@ $clone$gitRepo $installDir
 cd $installDir
 . ./setup.sh
 
-cd $s3fsCurrDir
+cd $swTestDataCurrDir

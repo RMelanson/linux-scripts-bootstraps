@@ -1,5 +1,4 @@
 #!/bin/bash
-wpCurrDir=$PWD
 
 # Ensure script is running under root
 if [ "$EUID" -ne 0 ]
@@ -13,10 +12,16 @@ else
    branch=$1
 fi
 
+jbossBootCurrDir=$PWD
+webCurrDir=$PWD
+baseDir=/tmp/scripts
+subDir=www
+pkg=JBOSS
+installDir="$baseDir/$subDir/$pkg"
+gitRepo="linux-scripts-apps-jboss.git $jbossDir"
+
+
 #Set Cloning Properties
-pkg=devTools
-gitRepo="linux-scripts-apps-wp.git"
-installDir="/tmp/scripts/apps/WP"
 if [ -f ~/.ssh/gitHub.key ]; then
    clone="git clone -b $branch git@github.com:RMelanson/"
 else
@@ -31,4 +36,4 @@ $clone$gitRepo $installDir
 cd $installDir
 . ./setup.sh
 
-cd $wpCurrDir
+cd $jbossBootCurrDir

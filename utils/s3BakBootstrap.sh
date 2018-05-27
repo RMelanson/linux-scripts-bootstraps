@@ -1,11 +1,17 @@
 #!/bin/bash
-swRestDir=$PWD
 
 # Ensure script is running under root
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root or under sudo"
   exit -1
 fi
+
+s3BackupCurrDir=$PWD
+baseDir=/tmp/scripts
+subDir=utils
+pkg=S3_BACKUP
+installDir="$baseDir/$subDir/$pkg"
+gitRepo="linux-scripts-bootstraps.git"
 
 if [ -z "$1" ]; then
    branch=master
@@ -14,9 +20,6 @@ else
 fi
 
 #Set Cloning Properties
-pkg=Web
-gitRepo="linux-scripts-apps-sw-api-rest"
-installDir="/tmp/scripts/apps/SW/API/REST"
 if [ -f ~/.ssh/gitHub.key ]; then
    clone="git clone -b $branch git@github.com:RMelanson/"
 else
@@ -31,4 +34,4 @@ $clone$gitRepo $installDir
 cd $installDir
 . ./setup.sh
 
-cd $swRestDir
+cd $s3BackupCurrDir

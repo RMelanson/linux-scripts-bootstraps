@@ -1,9 +1,17 @@
 #!/bin/bash
+
 # Ensure script is running under root
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root or under sudo"
   exit -1
 fi
+
+sshConnectDir=$PWD
+baseDir=/tmp/scripts
+subDir=utils
+pkg=SSH_CONNECT
+installDir="$baseDir/$subDir/$pkg"
+gitRepo="linux-scripts-utils-gitHub-sshConnect"
 
 if [ -z "$1" ]; then
    branch=master
@@ -11,12 +19,7 @@ else
    branch=$1
 fi
 
-jbossBootCurrDir=$PWD
-
 #Set Cloning Properties
-pkg=JBOSS
-gitRepo="linux-scripts-apps-jboss.git $jbossDir"
-installDir="/tmp/scripts/apps/JBOSS"
 if [ -f ~/.ssh/gitHub.key ]; then
    clone="git clone -b $branch git@github.com:RMelanson/"
 else
@@ -31,4 +34,4 @@ $clone$gitRepo $installDir
 cd $installDir
 . ./setup.sh
 
-cd $jbossBootCurrDir
+cd $sshConnectDir

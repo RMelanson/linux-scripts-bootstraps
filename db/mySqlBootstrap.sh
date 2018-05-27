@@ -1,6 +1,4 @@
 #!/bin/bash
-swTestDataCurrDir=$PWD
-
 # Ensure script is running under root
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root or under sudo"
@@ -13,10 +11,14 @@ else
    branch=$1
 fi
 
+mySqlCurrDir=$PWD
+baseDir=/tmp/scripts
+subDir=db
+pkg=MYSQL
+installDir="$baseDir/$subDir/$pkg"
+gitRepo="linux-scripts-apps-db-mysql.git"
+
 #Set Cloning Properties
-pkg=swTestData
-gitRepo="linux-scripts-apps-sw-test-data.git"
-installDir="/tmp/scripts/apps/SW/test/data"
 if [ -f ~/.ssh/gitHub.key ]; then
    clone="git clone -b $branch git@github.com:RMelanson/"
 else
@@ -31,4 +33,4 @@ $clone$gitRepo $installDir
 cd $installDir
 . ./setup.sh
 
-cd $swTestDataCurrDir
+cd $mySqlCurrDir

@@ -1,5 +1,4 @@
 #!/bin/bash
-sshConnectDir=$PWD
 
 # Ensure script is running under root
 if [ "$EUID" -ne 0 ]
@@ -13,10 +12,14 @@ else
    branch=$1
 fi
 
+wpCurrDir=$PWD
+baseDir=/tmp/scripts
+subDir=www
+pkg=WP
+installDir="$baseDir/$subDir/$pkg"
+gitRepo="linux-scripts-apps-wp.git"
+
 #Set Cloning Properties
-pkg=Web
-gitRepo="linux-scripts-utils-gitHub-sshConnect"
-installDir="/tmp/scripts/utils/sshConnect"
 if [ -f ~/.ssh/gitHub.key ]; then
    clone="git clone -b $branch git@github.com:RMelanson/"
 else
@@ -31,4 +34,4 @@ $clone$gitRepo $installDir
 cd $installDir
 . ./setup.sh
 
-cd $sshConnectDir
+cd $wpCurrDir

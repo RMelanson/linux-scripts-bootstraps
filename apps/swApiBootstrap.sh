@@ -1,5 +1,4 @@
 #!/bin/bash
-webCurrDir=$PWD
 
 # Ensure script is running under root
 if [ "$EUID" -ne 0 ]
@@ -13,10 +12,14 @@ else
    branch=$1
 fi
 
+swRestDir=$PWD
+baseDir=/tmp/scripts
+subDir=apps
+pkg=SW_API
+installDir="$baseDir/$subDir/$pkg"
+gitRepo="linux-scripts-apps-sw-api-rest"
+
 #Set Cloning Properties
-pkg=Web
-gitRepo="linux-scripts-apps-web.git"
-installDir="/tmp/scripts/apps/WEB"
 if [ -f ~/.ssh/gitHub.key ]; then
    clone="git clone -b $branch git@github.com:RMelanson/"
 else
@@ -31,4 +34,4 @@ $clone$gitRepo $installDir
 cd $installDir
 . ./setup.sh
 
-cd $webCurrDir
+cd $swRestDir

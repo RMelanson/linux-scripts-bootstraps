@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Ensure script is running under root
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root or under sudo"
@@ -11,12 +12,14 @@ else
    branch=$1
 fi
 
-mySqlCurrDir=$PWD
+webCurrDir=$PWD
+baseDir=/tmp/scripts
+subDir=www
+pkg=HTTP
+installDir="$baseDir/$subDir/$pkg"
+gitRepo="linux-scripts-apps-web.git"
 
 #Set Cloning Properties
-pkg=mysql
-gitRepo="linux-scripts-apps-db-mysql.git"
-installDir="/tmp/scripts/db/MYSQL"
 if [ -f ~/.ssh/gitHub.key ]; then
    clone="git clone -b $branch git@github.com:RMelanson/"
 else
@@ -31,4 +34,4 @@ $clone$gitRepo $installDir
 cd $installDir
 . ./setup.sh
 
-cd $mySqlCurrDir
+cd $webCurrDir

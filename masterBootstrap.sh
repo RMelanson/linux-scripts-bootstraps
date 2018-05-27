@@ -5,14 +5,6 @@ if [ "$EUID" -ne 0 ]
   exit -1
 fi
 
-if [ -z "$1" ]; then
-   branch=master
-else
-   branch=$1
-fi
-
-bsCurrDir=$PWD
-
 #INITIAL BASIC TOOLS INSTALL
 yum update -y
 
@@ -20,8 +12,20 @@ yum update -y
 yum install git -y
 
 #Set Cloning Properties
+
+if [ -z "$1" ]; then
+   branch=master
+else
+   branch=$1
+fi
+
+masterCurrDir=$PWD
+baseDir=/tmp
+subDir=scripts
 pkg=bootstraps
+installDir="$baseDir/$subDir/$pkg"
 gitRepo="linux-scripts-bootstraps.git"
+
 installDir="/var/scripts/bootstraps"
 if [ -f ~/.ssh/gitHub.key ]; then
    clone="git clone -b $branch git@github.com:RMelanson/"
@@ -37,4 +41,4 @@ $clone$gitRepo $installDir
 cd $installDir
 . ./setup.sh
 
-cd $bsCurrDir
+cd $masterCurrDir
