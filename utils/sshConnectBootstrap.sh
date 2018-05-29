@@ -19,6 +19,12 @@ else
    branch=$1
 fi
 
+#INITIAL BASIC TOOLS INSTALL
+yum update -y
+
+#INSTALL GIT
+yum install git -y
+
 #Set Cloning Properties
 if [ -f ~/.ssh/gitHub.key ]; then
    clone="git clone -b $branch git@github.com:RMelanson/"
