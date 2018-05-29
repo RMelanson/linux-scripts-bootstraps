@@ -11,6 +11,12 @@ else
   branch=$1
 fi
 
+#INITIAL BASIC TOOLS INSTALL
+yum update -y
+
+#INSTALL GIT
+yum install git -y
+
 devToolsCurrDir=$PWD
 baseDir=/tmp/scripts
 subDir=dev
