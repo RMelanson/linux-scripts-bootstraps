@@ -15,12 +15,11 @@ fi
 swTestDataCurrDir=$PWD
 baseDir=/tmp/scripts
 subDir=apps
-pkg=SW_TEST_DATA
+pkg=SW/DATA/TEST
 installDir="$baseDir/$subDir/$pkg"
 gitRepo="linux-scripts-apps-sw-test-data.git"
 
 #Set Cloning Properties
-installDir="/tmp/scripts/apps/SW/test/data"
 if [ -f ~/.ssh/gitHub.key ]; then
    clone="git clone -b $branch git@github.com:RMelanson/"
 else

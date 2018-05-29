@@ -15,7 +15,7 @@ fi
 swRestDir=$PWD
 baseDir=/tmp/scripts
 subDir=apps
-pkg=SW_API
+pkg=SW/API/REST
 installDir="$baseDir/$subDir/$pkg"
 gitRepo="linux-scripts-apps-sw-api-rest"
 
