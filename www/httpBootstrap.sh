@@ -12,6 +12,12 @@ else
    branch=$1
 fi
 
+#INITIAL BASIC TOOLS INSTALL
+yum update -y
+
+#INSTALL GIT
+yum install git -y
+
 webCurrDir=$PWD
 baseDir=/tmp/scripts
 subDir=www
