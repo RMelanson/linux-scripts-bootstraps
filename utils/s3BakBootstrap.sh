@@ -13,6 +13,12 @@ pkg=S3_BACKUP
 installDir="$baseDir/$subDir/$pkg"
 gitRepo="linux-scripts-bootstraps.git"
 
+#INITIAL BASIC TOOLS INSTALL
+yum update -y
+
+#INSTALL GIT
+yum install git -y
+
 if [ -z "$1" ]; then
    branch=master
 else
