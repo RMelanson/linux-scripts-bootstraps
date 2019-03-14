@@ -1,3 +1,6 @@
+#!/bin/bash
+
+# BOOTSTRAPS CONFIGURATION PARAMETERS
 set -o vi
 pkg=bootstraps
 export BASE_INSTALL=/tmp/scripts
