@@ -14,7 +14,6 @@ yum install git -y
 # SETUP ENVIRONMENT AND PARAMETERS
 . ./env/setEnv.sh
 
-
 masterCurrDir=$PWD
 baseDir=/tmp
 subDir=scripts
