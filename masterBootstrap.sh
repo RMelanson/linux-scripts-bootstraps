@@ -11,12 +11,13 @@ yum update -y
 #INSTALL GIT
 yum install git -y
 
-#Set Cloning Properties
+# SETUP ENVIRONMENT AND PARAMETERS
+. ./env/setEnv.sh
+
 
 masterCurrDir=$PWD
 baseDir=/tmp
 subDir=scripts
-pkg=bootstraps
 installDir="$baseDir/$subDir/$pkg"
 gitRepo="linux-scripts-bootstraps.git"
 
