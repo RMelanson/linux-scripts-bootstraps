@@ -5,3 +5,5 @@ set -o vi
 pkg=bootstraps
 export BASE_INSTALL=/tmp/scripts
 export SW_HOME=/home/SW_HOME
+installDir="/tmp/scripts/$pkg"
+gitRepo="linux-scripts-bootstraps.git"
