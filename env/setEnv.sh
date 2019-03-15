@@ -1,9 +1,8 @@
 #!/bin/bash
 
 # BOOTSTRAPS CONFIGURATION PARAMETERS
-set -o vi
-pkg=bootstraps
-export BASE_INSTALL=/tmp/scripts
-export SW_HOME=/home/SW_HOME
+pkg=BOOTSTRAPS
 installDir="/tmp/scripts/$pkg"
 gitRepo="linux-scripts-bootstraps.git"
+export BASE_INSTALL=/tmp/scripts
+export SW_HOME=/home/SW_HOME
