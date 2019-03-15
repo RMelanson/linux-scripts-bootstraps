@@ -1,4 +1,6 @@
 #!/bin/bash
+masterCurrDir=$PWD
+
 # Ensure script is running under root
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root or under sudo"
@@ -13,12 +15,6 @@ yum install git -y
 
 # SETUP ENVIRONMENT AND PARAMETERS
 . ./env/setEnv.sh
-
-masterCurrDir=$PWD
-baseDir=/tmp
-subDir=scripts
-installDir="$baseDir/$subDir/$pkg"
-gitRepo="linux-scripts-bootstraps.git"
 
 installDir="/var/scripts/bootstraps"
 if [ -f ~/.ssh/gitHub.key ]; then
