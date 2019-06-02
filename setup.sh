@@ -5,7 +5,10 @@ if [ "$EUID" -ne 0 ]
   exit -1
 fi
 
-# Setup the required environment
+setupName=setup.sh:
+
+# SETUP THE ENVIRONMENT
+echo "$setupName: EXECUTING: . ./env/setEnv.sh $*"
 . ./env/setEnv.sh $*
 
 # COPY RESTORE 
